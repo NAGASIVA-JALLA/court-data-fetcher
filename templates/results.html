@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Case Result</title>
+    <style>
+      table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 5px;
+      }
+    </style>
+</head>
+<body>
+    <h2>Case Details Table</h2>
+
+    {% if result.case_table and result.case_table|length > 0 %}
+        <table>
+            <thead>
+                <tr>
+                    {% for header in result.case_table[0].keys() %}
+                        <th>{{ header }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in result.case_table %}
+                    <tr>
+                        {% for value in row.values() %}
+                            <td>{{ value }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No case details found.</p>
+    {% endif %}
+
+    <br>
+    <a href="/form">Back to search</a>
+</body>
+</html>

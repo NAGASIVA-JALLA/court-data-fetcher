@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Delhi High Court Case Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #f5f7fa;
+            border-radius: 8px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.1);
+            color: #333;
+        }
+        h2 {
+            text-align: center;
+            color: #004080;
+            margin-bottom: 25px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            font-weight: 600;
+            margin-bottom: 6px;
+            margin-top: 16px;
+            color: #004080;
+        }
+        select, input[type="text"] {
+            padding: 10px;
+            font-size: 1rem;
+            border: 1.5px solid #ccc;
+            border-radius: 4px;
+            transition: border-color 0.3s ease;
+        }
+        select:focus, input[type="text"]:focus {
+            border-color: #004080;
+            outline: none;
+        }
+        button {
+            margin-top: 30px;
+            padding: 12px;
+            font-size: 1.1rem;
+            background-color: #004080;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #002d5c;
+        }
+        .note {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #555;
+            text-align: center;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Delhi High Court Case Search</h2>
+
+    <form method="post" action="/result">
+        <!-- Case Type -->
+        <label for="case_type">Case Type</label>
+        <select name="case_type" id="case_type" required>
+            <option value="" disabled selected>Select case type</option>
+            <option value="ARB.A.">ARB.A.</option>
+            <option value="ARB.P.">ARB.P.</option>
+            <option value="ARB. A. (COMM)">ARB. A. (COMM)</option>
+            <option value="ARCT">ARCT</option>
+            <option value="BAIL APPLN.">BAIL APPLN.</option>
+            <option value="CONT.APP.(C)">CONT.APP.(C)</option>
+            <option value="CONT.CAS(C)">CONT.CAS(C)</option>
+            <option value="CONT.CAS(CRL)">CONT.CAS(CRL)</option>
+            <option value="CRL.A.">CRL.A.</option>
+            <option value="CRL.M.C.">CRL.M.C.</option>
+            <option value="CRL.M.(CO.).">CRL.M.(CO).</option>
+            <option value="CRL.REF.">CRL.REF.</option>
+            <option value="CRL.REV.P.">CRL.REV.P.</option>
+            <option value="CRL.REV.P.(MAT.)">CRL.REV.P.(MAT.)</option>
+            <option value="CS(COMM)">CS(COMM)</option>
+            <option value="CS(OS)">CS(OS)</option>
+            <option value="CS(OS) GP">CS(OS) GP</option>
+            <option value="EFA(OS)">EFA(OS)</option>
+            <option value="EX.P.">EX.P.</option>
+            <option value="FAO">FAO</option>
+            <option value="FAO(OS)">FAO(OS)</option>
+            <option value="FAO(OS) (COMM)">FAO(OS) (COMM)</option>
+            <option value="FAO(OS)(IPD)">FAO(OS)(IPD)</option>
+            <option value="ITA">ITA</option>
+            <option value="ITC">ITC</option>
+            <option value="ITR">ITR</option>
+            <option value="ITSA">ITSA</option>
+            <option value="O.M.P.(I)">O.M.P.(I)
+            <option value="O.M.P.(I) (COMM)">O.M.P.(I) (COMM)</option>
+            <option value="O.M.P.(J) (COMM)">O.M.P.(J) (COMM)</option>
+            <option value="O.M.P.(MISC)">O.M.P.(MISC)</option>
+            <option value="O.M.P.(T)">O.M.P.(T)</option>
+            <option value="O.M.P.(T) (COMM)">O.M.P.(T) (COMM)</option>
+            <option value="RFA">RFA</option>
+            <option value="TEST.CAS.">TEST.CAS.</option>
+            <option value="TR.P.(C)">TR.P.(C)</option>
+            <option value="W.P.(C)">W.P.(C)</option>
+
+        </select>
+
+        <!-- Case Number -->
+        <label for="case_number">Case Number</label>
+        <input type="text" name="case_number" id="case_number" placeholder="Enter case number" required autocomplete="off" pattern="\d+" title="Please enter numeric case number" />
+
+        <!-- Case Year -->
+        <label for="case_year">Case Year</label>
+        <select name="case_year" id="case_year" required>
+            <option value="" disabled selected>Select year</option>
+            <option value="2025">2025</option>
+            <option value="2024">2024</option>
+            <option value="2023">2023</option>
+            <option value="2022">2022</option>
+            <option value="2021">2021</option>
+            <option value="2020">2020</option>
+            <option value="2019">2019</option>
+            <option value="2018">2018</option>
+            <option value="2017">2017</option>
+            <option value="2016">2016</option>
+            <option value="2015">2015</option>
+            <option value="2014">2014</option>
+            <option value="2013">2013</option>
+            <option value="2012">2012</option>
+            <option value="2011">2011</option>
+            <option value="2010">2010</option>
+            <option value="2009">2009</option>
+            <option value="2008">2008</option>
+            <option value="2007">2007</option>
+            <option value="2006">2006</option>
+            <option value="2005">2005</option>
+            <option value="2004">2004</option>
+            <option value="2003">2003</option>
+            <option value="2002">2002</option>
+            <option value="2001">2001</option>
+            <option value="2000">2000</option>
+
+
+        </select>
+
+        <button type="submit">Search Case</button>
+    </form>
+
+    <div class="note">
+        Note: After submitting, a browser window will open for CAPTCHA verification. Please solve the CAPTCHA manually and then press Enter in the terminal to continue.
+    </div>
+
+</body>
+</html>

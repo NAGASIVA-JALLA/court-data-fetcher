@@ -14,7 +14,7 @@ The task required building a mini web app capable of:
 
 The official assignment title was:
 
-**Task 1 — “Court-Data Fetcher & Mini-Dashboard”**
+**Task  — “Court-Data Fetcher & Mini-Dashboard”**
 
 For this assignment, I selected the Delhi High Court website:  
 👉 https://delhihighcourt.nic.in/
@@ -150,19 +150,29 @@ listing_date_court_no | String | Next/Last listing date
 ## 🛠️ Setup Instructions
 
 ### 1️⃣ Clone the repository
+```bash
 git clone https://github.com/NAGASIVA-JALLA/court-data-fetcher.git  
-cd court-data-fetcher  
+```
+
+
 
 ### 2️⃣ Create a virtual environment
+```bash
 python -m venv venv  
 venv\Scripts\activate   # Windows  
 source venv/bin/activate  # Mac/Linux  
+```
 
 ### 3️⃣ Install dependencies
+```bash
 pip install -r requirements.txt  
 
+```
+
 ### 4️⃣ Install Playwright browsers
-playwright install  
+```bash
+playwright install 
+```
 
 ### 5️⃣ Configure PostgreSQL
 
@@ -173,11 +183,15 @@ Update your .env file:
 DATABASE_URL=postgresql://username:password@localhost:5432/court_data  
 
 ### 6️⃣ Run FastAPI
+```bash
 uvicorn main:app --reload  
 
-### 7️⃣ Open the app
-👉 http://127.0.0.1:8000/form  
+```
 
+### 7️⃣ Open the app
+```bash
+👉 http://127.0.0.1:8000/form
+```
 ---
 
 ## 🖥️ How to Use

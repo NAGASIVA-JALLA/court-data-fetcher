@@ -37,24 +37,29 @@ It is stable, public, structured, and ideal for scraping with Playwright.
 
 ## ⚙️ How the System Works (Simple Flow)
 
-1. User opens the web app at:  
-   **http://127.0.0.1:8000/form**
+User opens the web app at:  
+http://127.0.0.1:8000/form  
 
-2. User fills in the case details (type, number, year).  
-3. Playwright launches a browser automatically.  
-4. The scraper autofills the official Delhi High Court search form.  
-5. Browser waits for the user to solve CAPTCHA manually.  
-6. User submits the form on the website.  
-7. User presses Enter in the terminal to continue.  
-8. Scraper extracts:
+User fills in the case details (type, number, year).  
 
-   - Parties’ names  
-   - Case status  
-   - Next/Last hearing date  
+Playwright launches a browser automatically.  
 
-9. Data is:
-   - Shown on the results HTML page  
-   - Stored in PostgreSQL  
+The scraper autofills the official Delhi High Court search form.  
+
+Browser waits for the user to solve CAPTCHA manually.  
+
+User submits the form on the website.  
+
+User presses Enter in the terminal to continue.  
+
+Scraper extracts:  
+- Parties’ names  
+- Case status  
+- Next/Last hearing date  
+
+Data is:  
+- Shown on the results HTML page  
+- Stored in PostgreSQL  
 
 ---
 
@@ -64,14 +69,14 @@ It is stable, public, structured, and ideal for scraping with Playwright.
 - Clean HTML form for entering case details  
 - Auto-navigation and auto-filling of court form  
 - Manual CAPTCHA step → ensures legal scraping  
-- Stores:
+- Stores:  
   - Search parameters  
   - Extracted case details  
   - Raw HTML page  
 
 ### 🔹 Scraped Case Details
 - Petitioner vs Respondent  
-- Next hearing date (or last hearing if next unavailable)  
+- Next hearing date (or last hearing if next is unavailable)  
 - Case status  
 - Diary number information  
 
@@ -82,21 +87,21 @@ Every search entry is saved in PostgreSQL using SQLAlchemy ORM.
 
 ## 🧠 Technical Stack
 
-| Component          | Technology                 |
-|-------------------|----------------------------|
-| Backend Framework | FastAPI                    |
-| Scraper          | Playwright                 |
-| Database         | PostgreSQL                 |
-| ORM              | SQLAlchemy                 |
-| Templates        | Jinja2                     |
-| Async Support    | async SQLAlchemy + Playwright |
-| Frontend         | HTML + Jinja templates     |
+Component | Technology  
+--------- | ----------  
+Backend Framework | FastAPI  
+Scraper | Playwright  
+Database | PostgreSQL  
+ORM | SQLAlchemy  
+Templates | Jinja2  
+Async Support | async SQLAlchemy + async Playwright  
+Frontend | HTML + Jinja templates  
 
 ---
 
 ## 🛑 CAPTCHA Handling (Important)
 
-CAPTCHA is **not bypassed** (illegal & against terms).  
+CAPTCHA is not bypassed (as that is illegal and violates terms).  
 Instead, this system uses:
 
 ✔ Playwright browser opens visibly  
@@ -120,9 +125,9 @@ The scraper reliably extracts:
 
 ## ⚠️ Limitations (From Court Website Itself)
 
-- Filing Date not available on results page  
-- Order/Judgment PDFs not provided  
-- For PDFs, deeper scraping into case-detail pages required  
+- Filing Date is not available on search results page  
+- Order/Judgment PDF links are not provided  
+- To fetch PDFs, deeper scraping into case-detail pages is required  
 
 ---
 
@@ -130,48 +135,48 @@ The scraper reliably extracts:
 
 **Table: court_queries**
 
-| Column                     | Type     | Description                     |
-|---------------------------|----------|---------------------------------|
-| id                        | Integer  | Primary key                     |
-| case_type                 | String   | e.g., W.P.(C), BAIL             |
-| case_number               | String   | Case number                     |
-| case_year                 | String   | Year of filing                  |
-| diary_no_status           | String   | Diary number + case status      |
-| petitioner_vs_respondent  | String   | Parties involved                |
-| listing_date_court_no     | String   | Next/Last listing date          |
+Column | Type | Description  
+-------|------|-------------  
+id | Integer | Primary key  
+case_type | String | e.g., W.P.(C), BAIL  
+case_number | String | Case number  
+case_year | String | Year of filing  
+diary_no_status | String | Diary number + case status  
+petitioner_vs_respondent | String | Parties involved  
+listing_date_court_no | String | Next/Last listing date  
 
 ---
 
 ## 🛠️ Setup Instructions
 
-## 1️⃣ Clone the repository
-```bash
-     https://github.com/NAGASIVA-JALLA/court-data-fetcher.git
----
-## 2️⃣ Create a virtual environment
-python -m venv venv
-venv\Scripts\activate   # Windows
-source venv/bin/activate  # Mac/Linux
----
-## 3️⃣ Install dependencies
-pip install -r requirements.txt
----
-## 4️⃣ Install Playwright browsers
-playwright install
----
-## 5️⃣ Configure PostgreSQL
+### 1️⃣ Clone the repository
+git clone https://github.com/NAGASIVA-JALLA/court-data-fetcher.git  
+cd court-data-fetcher  
 
-Create a database:
-court_data
+### 2️⃣ Create a virtual environment
+python -m venv venv  
+venv\Scripts\activate   # Windows  
+source venv/bin/activate  # Mac/Linux  
 
-Update your .env file:
-DATABASE_URL=postgresql://username:password@localhost:5432/court_data
----
-## 6️⃣ Run FastAPI
-uvicorn main:app --reload
----
-## 7️⃣ Open the app
-👉 http://127.0.0.1:8000/form
+### 3️⃣ Install dependencies
+pip install -r requirements.txt  
+
+### 4️⃣ Install Playwright browsers
+playwright install  
+
+### 5️⃣ Configure PostgreSQL
+
+Create a database:  
+court_data  
+
+Update your .env file:  
+DATABASE_URL=postgresql://username:password@localhost:5432/court_data  
+
+### 6️⃣ Run FastAPI
+uvicorn main:app --reload  
+
+### 7️⃣ Open the app
+👉 http://127.0.0.1:8000/form  
 
 ---
 
@@ -190,11 +195,11 @@ Data is automatically saved in PostgreSQL
 
 ## 🚧 Future Improvements
 
-Automate CAPTCHA if legally permitted  
-Add case-order/judgment PDF scraper  
-Create complete dashboard with charts  
-Add user login system  
-Error reporting + logs page  
+- Automate CAPTCHA if legally permitted  
+- Add case-order/judgment PDF scraper  
+- Create complete dashboard with charts  
+- Add user login system  
+- Error reporting + logs page  
 
 ---
 
@@ -212,5 +217,3 @@ You can add:
 
 👩‍💻 **Developed by:** NAGASIVA JALLA  
 GitHub: https://github.com/NAGASIVA-JALLA
-
-

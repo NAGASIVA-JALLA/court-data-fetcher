@@ -224,5 +224,5 @@ The real scraper does work with actual case numbers and stores the correct extra
 ---
 ## 🙌 Thank You!
 
-👩‍💻 **Developed by:** NAGASIVA JALLA  
-GitHub: https://github.com/NAGASIVA-JALLA ([NAGASIVA JALLA](https://github.com/NAGASIVA-JALLA)
+ 
+👩‍💻 **Developed by:** NAGASIVA JALLA([NAGASIVA JALLA](https://github.com/NAGASIVA-JALLA))

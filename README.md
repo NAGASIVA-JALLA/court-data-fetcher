@@ -205,15 +205,19 @@ Data is automatically saved in PostgreSQL
 
 ## 📸 Screenshots
 
-You can add:
 
-/screenshots/form_page.png  
-/screenshots/result_page.png  
-/screenshots/database_view.png  
+### 📝 Form Page  
+![Form Page](screenshots/form_page.png)
+
+### 📄 Result Page  
+![Result Page](screenshots/result_page.png)
+
+### 🗄️ Database View  
+![Database View](screenshots/database_view.png)
 
 ---
 
 ## 🙌 Thank You!
 
 👩‍💻 **Developed by:** NAGASIVA JALLA  
-GitHub: https://github.com/NAGASIVA-JALLA
+GitHub: https://github.com/NAGASIVA-JALLA ([NAGASIVA JALLA](https://github.com/NAGASIVA-JALLA)

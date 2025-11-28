@@ -178,7 +178,7 @@ uvicorn main:app --reload
 ### 7️⃣ Open the app
 👉 http://127.0.0.1:8000/form
 
----
+------
 
 ## 🖥️ How to Use
 

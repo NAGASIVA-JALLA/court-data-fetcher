@@ -141,7 +141,7 @@ id | Integer | Primary key
 case_type | String | e.g., W.P.(C), BAIL  
 case_number | String | Case number  
 case_year | String | Year of filing  
-diary_no_status | String | Diary number + case status  
+Diary_no_Case_no_status | String | Diary number + case status  
 petitioner_vs_respondent | String | Parties involved  
 listing_date_court_no | String | Next/Last listing date  
 
@@ -176,8 +176,9 @@ playwright install
 
 ### 5️⃣ Configure PostgreSQL
 
-Create a database:  
-court_data  
+```bash
+CREATE DATABASE court_data;
+```
 
 Update your .env file:  
 DATABASE_URL=postgresql://username:password@localhost:5432/court_data  

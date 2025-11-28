@@ -202,9 +202,7 @@ Data is automatically saved in PostgreSQL
 - Error reporting + logs page  
 
 ---
-
 ## 📸 Screenshots
-
 
 ### 📝 Form Page  
 ![Form Page](screenshots/form.png)
@@ -217,6 +215,13 @@ Data is automatically saved in PostgreSQL
 
 ---
 
+🔒 **Privacy & Ethical Note**  
+
+For privacy and ethical reasons, all screenshots in this README use only dummy case numbers (e.g., W.P.(C) 000 / 2025) and show “No data found”.  
+
+The real scraper does work with actual case numbers and stores the correct extracted data in PostgreSQL, but real court case information is not displayed publicly.
+
+---
 ## 🙌 Thank You!
 
 👩‍💻 **Developed by:** NAGASIVA JALLA  

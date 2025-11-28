@@ -1,22 +1,44 @@
-# Court-Data Fetcher & Mini-Dashboard (Delhi High Court Scraper)
+# Court-Data Fetcher & Mini-Dashboard 
 
-A technical assignment completed for Indrachala
+## 📌 Why This Project
 
-## 📌 About This Project
+Most Indian High Court websites, including the Delhi High Court portal, display case details only one case at a time.
+for every lookup,the user must enter:
+- **case type
+- **case number
+- **case year
+- **captcha
+- **read the result
+- ** and repeat the same steps again for the next case
 
-This project was developed as part of a technical assignment from Indrachala.  
-The task required building a mini web app capable of:
+**This becomes inefficient for:**
 
-➡️ Fetching public case information from an official Indian court website  
-➡️ Handling manual CAPTCHA legally  
-➡️ Saving results in a PostgreSQL database  
-➡️ Displaying the case information in a clean, simple HTML dashboard  
+- **Researchers** tracking multiple cases,
+- **Interns** verifying repeated updates,
+- **Lawyers** monitoring their case list daily,
+- **legal-tech teams** who require structured data and reusuable data.
+Each search is temporary,the data disappears once you close the page
+  
+## 📌 The official website shows the information on the screen but does not provide
 
-The official assignment title was:
+- **Data export
+- **Permanent history
+- **Structured  database storage
+- **Comparison between older and newer hearing updates
+- **Bulk access or automated workflows.
+➡️Anyone checking the same case tomorrow must repeat the full process again.
 
-**Task  — “Court-Data Fetcher & Mini-Dashboard”**
+## ✔ How This project solves these problem
+- **FastAPI workflow for repeated case lookups
+- **Playwright automation for navigation and form filling
+- **manual CAPTCHA solving (legal and required)
+- **structured extraction of case details
+- **permanent storage in PostgreSQL
+- **a clean dashboard for viewing results
 
-For this assignment, I selected the Delhi High Court website:  
+Instead of temporary text on the screen, this project converts court information into **permanent,stored, reusable, analyzable data.**
+
+For implementation , I selected the Delhi High Court website:  
 👉 https://delhihighcourt.nic.in/
 
 It is stable, public, structured, and ideal for scraping with Playwright.
@@ -31,7 +53,7 @@ It is stable, public, structured, and ideal for scraping with Playwright.
 ✔ HTML form-based frontend for case search  
 ✔ PostgreSQL database integration  
 ✔ Clean result rendering  
-✔ Storing raw HTML + search history  
+✔ Storing search history  
 
 ---
 
@@ -72,13 +94,13 @@ Data is:
 - Stores:  
   - Search parameters  
   - Extracted case details  
-  - Raw HTML page  
+    
 
-### 🔹 Scraped Case Details
+### 🔹 Extracted Data Includes
 - Petitioner vs Respondent  
 - Next hearing date (or last hearing if next is unavailable)  
 - Case status  
-- Diary number information  
+- Diary number & court info 
 
 ### 🔹 Database Storage
 Every search entry is saved in PostgreSQL using SQLAlchemy ORM.
@@ -116,10 +138,10 @@ This approach is safe, legal, and recommended.
 
 The scraper reliably extracts:
 
-- Parties’ Names  
+- Petitioner/Respondent
 - Next Hearing Date (or Last Date)  
 - Case Status  
-- Diary Number & Listing Info  
+- Diary Number & Listing details  
 
 ---
 
@@ -145,6 +167,8 @@ Diary_no_Case_no_status | String | Diary number + case status
 petitioner_vs_respondent | String | Parties involved  
 listing_date_court_no | String | Next/Last listing date  
 
+By the way, this table called CourtQuery (or whatever your model name is) is automatically created by the backend using SQLAlchemy. I didn’t manually create this table in PostgreSQL. The ORM creates it for me the first time the project runs. So there is no need to manually create any table — the backend handles everything.
+
 ---
 
 ## 🛠️ Setup Instructions
@@ -158,11 +182,11 @@ This project uses environment variables to store sensitive information such as t
 For security reasons, the .env file is not included in the GitHub repository.
 After cloning the repository, you must manually create a .env file in the project root.
 ✅ Steps to Create the .env File
-#### ➡️In the project directory, create a new file named:
+#### ➡️ In the project directory, create a new file named:
 ```bash
  .env
 ```
-#### ➡️IAdd the following environment variable inside the .env file:
+#### ➡️ Add the following environment variable inside the .env file:
 ```bash
 DATABASE_URL=postgresql://<username>:<password>@localhost:5432/<database_name>
 
@@ -191,12 +215,13 @@ playwright install
 ```bash
 CREATE DATABASE court_data;
 ```
+##### update your .env file:  
+DATABASE_URL=postgresql://<username>:<password>@localhost:5432/<database_name>
 #### Replace:
 ➡️<username> → your PostgreSQL username
 ➡️<password> → your PostgreSQL password
 ➡️<database_name> → your PostgreSQL database name
-##### your .env file:  
-DATABASE_URL=postgresql://username:password@localhost:5432/database name 
+
 
 ### 6️⃣ Run FastAPI
 ```bash
@@ -208,6 +233,15 @@ uvicorn main:app --reload
 ```bash
 👉 http://127.0.0.1:8000/form
 ```
+When I run uvicorn main:app, it starts a local server on my computer.
+Uvicorn shows a link — this link is the base address of my application.
+It means my project is now running at http://127.0.0.1:8000.
+To open the form I created, I add /form to the base address.
+http://127.0.0.1:8000=http://localhost:8000(both are same)
+So I type:
+http://127.0.0.1:8000/form
+and that opens the input page from my form.html file.
+
 ---
 
 ## 🖥️ How to Use
@@ -252,7 +286,27 @@ For privacy and ethical reasons, all screenshots in this README use only dummy c
 The real scraper does work with actual case numbers and stores the correct extracted data in PostgreSQL, but real court case information is not displayed publicly.
 
 ---
-## 🙌 Thank You!
+🔒 **Legal & Ethical Disclaimer**
 
+This project interacts only with publicly accessible information available on the official Delhi High Court website.
+It does not bypass CAPTCHA, authentication, or any security mechanism.
+All CAPTCHA entries are solved manually by the user, exactly as required by the official website.
+
+The tool does not attempt to automate, hack, or exploit any restricted pages, APIs, or backend systems of the court.
+It only automates the repetitive form-filling and data extraction of information that is already visible to the user in their browser.
+
+This project is intended purely for:
+- **Educational use
+- **Learning backend automation
+- **Understanding FastAPI, Playwright, and PostgreSQL--
+- **Demonstrating structured data extraction for public information
+
+Users must follow all applicable laws and the Terms of Use of the respective government websites.
+The developer is not responsible for any misuse of the project.
+
+
+---
+
+## 🙌 Thank You!
  
 👩‍💻 **Developed by:** NAGASIVA JALLA([NAGASIVA JALLA](https://github.com/NAGASIVA-JALLA))

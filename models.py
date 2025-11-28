@@ -9,8 +9,8 @@ class CourtQuery(Base):
     case_number = Column(String)
     case_year = Column(String)
 
-    diary_no_status = Column(String)           # <-- new field
-    petitioner_vs_respondent = Column(String)  # <-- new field
-    listing_date_court_no = Column(String)    # <-- new field
+    Diary_No_Case_No_Status = Column(String)
+    petitioner_vs_respondent = Column(String)  
+    listing_date_court_no = Column(String)    
 
 

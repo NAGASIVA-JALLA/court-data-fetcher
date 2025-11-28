@@ -153,8 +153,20 @@ listing_date_court_no | String | Next/Last listing date
 ```bash
 git clone https://github.com/NAGASIVA-JALLA/court-data-fetcher.git  
 ```
+✅ Environment Setup (.env File)
+This project uses environment variables to store sensitive information such as the database URL.
+For security reasons, the .env file is not included in the GitHub repository.
+After cloning the repository, you must manually create a .env file in the project root.
+✅ Steps to Create the .env File
+#### 1️⃣In the project directory, create a new file named:
+```bash
+ .env
+```
+#### 2️⃣IAdd the following environment variable inside the .env file:
+```bash
+DATABASE_URL=postgresql://<username>:<password>@localhost:5432/<database_name>
 
-
+```
 
 ### 2️⃣ Create a virtual environment
 ```bash
@@ -179,9 +191,12 @@ playwright install
 ```bash
 CREATE DATABASE court_data;
 ```
-
-Update your .env file:  
-DATABASE_URL=postgresql://username:password@localhost:5432/court_data  
+#### Replace:
+➡️<username> → your PostgreSQL username
+➡️<password> → your PostgreSQL password
+➡️<database_name> → your PostgreSQL database name
+##### your .env file:  
+DATABASE_URL=postgresql://username:password@localhost:5432/database name 
 
 ### 6️⃣ Run FastAPI
 ```bash

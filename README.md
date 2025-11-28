@@ -26,7 +26,7 @@ Each search is temporary,the data disappears once you close the page
 - **Structured  database storage**
 - **Comparison between older and newer hearing updates**
 - **Bulk access/ automation**
-- 
+  
 ➡️Anyone checking the same case tomorrow must repeat the full process again.
 
 ## ✔ How This project solves these problem
@@ -60,29 +60,29 @@ It is stable, public, structured, and ideal for scraping with Playwright.
 
 ## ⚙️ How the System Works (Simple Flow)
 
-1.User opens the web app at:  
- http://127.0.0.1:8000/form  
+1. User opens the web app at:  
+  http://127.0.0.1:8000/form  
 
-2.User fills in the case details (type, number, year).  
+2. User fills in the case details (type, number, year).  
 
-3.Playwright launches a browser automatically.  
+3. Playwright launches a browser automatically.  
 
-4.The scraper autofills the official Delhi High Court search form.  
+4. The scraper autofills the official Delhi High Court search form.  
 
-5.Browser waits for the user to solve CAPTCHA manually.  
+5. Browser waits for the user to solve CAPTCHA manually.  
 
-6.User submits the form on the website.  
+6. User submits the form on the website.  
 
-7.User presses Enter in the terminal to continue.  
+7. User presses Enter in the terminal to continue.  
 
-8.Scraper extracts:  
--  Petitioner vs Respondent 
-- Case status  
-- Next/Last hearing date  
+8. Scraper extracts:  
+    -  Petitioner vs Respondent 
+    - Case status  
+    - Next/Last hearing date  
 
-9.Data is:  
-- Shown on the results HTML page  
-- Stored in PostgreSQL  
+9. Data is:  
+   - Shown on the results HTML page  
+   - Stored in PostgreSQL  
 
 ---
 
@@ -217,10 +217,18 @@ playwright install
 CREATE DATABASE court_data;
 ```
 ##### update your .env file:  
+
+```bash
+
 DATABASE_URL=postgresql://<username>:<password>@localhost:5432/<database_name>
+```
+
 #### Replace:
-➡️<username> → your PostgreSQL username
-➡️<password> → your PostgreSQL password
+
+➡️ <user_name> → your PostgreSQL username
+
+➡️ <pass_word> → your PostgreSQL password
+
 ➡️<database_name> → your PostgreSQL database name
 
 
@@ -238,7 +246,7 @@ When I run uvicorn main:app, it starts a local server on my computer.
 Uvicorn shows a link — this link is the base address of my application.
 It means my project is now running at http://127.0.0.1:8000.
 To open the form I created, I add /form to the base address.
-http://127.0.0.1:8000=http://localhost:8000(both are same)
+http://127.0.0.1:8000=http://localhost:8000 (both are same)
 So I type:
 http://127.0.0.1:8000/form
 and that opens the input page from my form.html file.
@@ -247,14 +255,14 @@ and that opens the input page from my form.html file.
 
 ## 🖥️ How to Use
 
-Enter case type, number, and year  
-Submit the form  
-Playwright opens Delhi High Court website  
-Solve CAPTCHA manually  
-Submit the court form  
-Return to terminal and press Enter  
-View results on the frontend  
-Data is automatically saved in PostgreSQL  
+- Enter case type, number, and year  
+- Submit the form  
+- Playwright opens Delhi High Court website  
+- Solve CAPTCHA manually  
+- Submit the court form  
+- Return to terminal and press Enter  
+- View results on the frontend  
+- Data is automatically saved in PostgreSQL  
 
 ---
 

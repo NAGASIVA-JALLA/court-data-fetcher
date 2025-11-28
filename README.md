@@ -144,41 +144,36 @@ The scraper reliably extracts:
 
 ## 🛠️ Setup Instructions
 
-### 1️⃣ Clone the repository
+## 1️⃣ Clone the repository
 ```bash
- clone https://github.com/NAGASIVA-JALLA/court-data-fetcher.git
-## 🛠️ Setup Instructions
-
-### 1️⃣ Clone the repository
-git clone https://github.com/NAGASIVA-JALLA/court-data-fetcher.git
-cd court-data-fetcher
-
-### 2️⃣ Create a virtual environment
+     https://github.com/NAGASIVA-JALLA/court-data-fetcher.git
+---
+## 2️⃣ Create a virtual environment
 python -m venv venv
 venv\Scripts\activate   # Windows
 source venv/bin/activate  # Mac/Linux
-
-### 3️⃣ Install dependencies
+---
+## 3️⃣ Install dependencies
 pip install -r requirements.txt
-
-### 4️⃣ Install Playwright browsers
+---
+## 4️⃣ Install Playwright browsers
 playwright install
-
-### 5️⃣ Configure PostgreSQL
+---
+## 5️⃣ Configure PostgreSQL
 
 Create a database:
 court_data
 
 Update your .env file:
 DATABASE_URL=postgresql://username:password@localhost:5432/court_data
-
-### 6️⃣ Run FastAPI
+---
+## 6️⃣ Run FastAPI
 uvicorn main:app --reload
-
-### 7️⃣ Open the app
+---
+## 7️⃣ Open the app
 👉 http://127.0.0.1:8000/form
 
-------
+---
 
 ## 🖥️ How to Use
 

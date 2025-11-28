@@ -4,12 +4,12 @@
 
 Most Indian High Court websites, including the Delhi High Court portal, display case details only one case at a time.
 for every lookup,the user must enter:
-- **case type
-- **case number
-- **case year
-- **captcha
-- **read the result
-- ** and repeat the same steps again for the next case
+- **case type**
+- **case number**
+- **case year**
+- **captcha**
+- read the result
+- and repeat the same steps again for the next case
 
 **This becomes inefficient for:**
 
@@ -21,20 +21,21 @@ Each search is temporary,the data disappears once you close the page
   
 ## 📌 The official website shows the information on the screen but does not provide
 
-- **Data export
-- **Permanent history
-- **Structured  database storage
-- **Comparison between older and newer hearing updates
-- **Bulk access or automated workflows.
+- **Data export**
+- **Permanent history**
+- **Structured  database storage**
+- **Comparison between older and newer hearing updates**
+- **Bulk access/ automation**
+- 
 ➡️Anyone checking the same case tomorrow must repeat the full process again.
 
 ## ✔ How This project solves these problem
-- **FastAPI workflow for repeated case lookups
-- **Playwright automation for navigation and form filling
-- **manual CAPTCHA solving (legal and required)
-- **structured extraction of case details
-- **permanent storage in PostgreSQL
-- **a clean dashboard for viewing results
+- **FastAPI workflow** for repeated case lookups
+- **Playwright automation** for navigation and form filling
+- **manual CAPTCHA solving** (legal and required)
+- **structured extraction**of case details
+- **permanent storage**in PostgreSQL
+- **a clean dashboard** for viewing results
 
 Instead of temporary text on the screen, this project converts court information into **permanent,stored, reusable, analyzable data.**
 
@@ -59,27 +60,27 @@ It is stable, public, structured, and ideal for scraping with Playwright.
 
 ## ⚙️ How the System Works (Simple Flow)
 
-User opens the web app at:  
-http://127.0.0.1:8000/form  
+1.User opens the web app at:  
+ http://127.0.0.1:8000/form  
 
-User fills in the case details (type, number, year).  
+2.User fills in the case details (type, number, year).  
 
-Playwright launches a browser automatically.  
+3.Playwright launches a browser automatically.  
 
-The scraper autofills the official Delhi High Court search form.  
+4.The scraper autofills the official Delhi High Court search form.  
 
-Browser waits for the user to solve CAPTCHA manually.  
+5.Browser waits for the user to solve CAPTCHA manually.  
 
-User submits the form on the website.  
+6.User submits the form on the website.  
 
-User presses Enter in the terminal to continue.  
+7.User presses Enter in the terminal to continue.  
 
-Scraper extracts:  
-- Parties’ names  
+8.Scraper extracts:  
+-  Petitioner vs Respondent 
 - Case status  
 - Next/Last hearing date  
 
-Data is:  
+9.Data is:  
 - Shown on the results HTML page  
 - Stored in PostgreSQL  
 
@@ -296,10 +297,10 @@ The tool does not attempt to automate, hack, or exploit any restricted pages, AP
 It only automates the repetitive form-filling and data extraction of information that is already visible to the user in their browser.
 
 This project is intended purely for:
-- **Educational use
-- **Learning backend automation
-- **Understanding FastAPI, Playwright, and PostgreSQL--
-- **Demonstrating structured data extraction for public information
+- Educational use
+- Learning backend automation
+- Understanding FastAPI, Playwright, and PostgreSQL
+- Demonstrating structured data extraction for public information
 
 Users must follow all applicable laws and the Terms of Use of the respective government websites.
 The developer is not responsible for any misuse of the project.

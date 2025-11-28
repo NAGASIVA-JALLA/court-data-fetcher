@@ -207,13 +207,13 @@ Data is automatically saved in PostgreSQL
 
 
 ### 📝 Form Page  
-![Form Page](screenshots/form_page.png)
+![Form Page](screenshots/form.png)
 
 ### 📄 Result Page  
-![Result Page](screenshots/result_page.png)
+![Result Page](screenshots/result.png)
 
 ### 🗄️ Database View  
-![Database View](screenshots/database_view.png)
+![Database View](screenshots/database.png)
 
 ---
 

@@ -158,11 +158,11 @@ This project uses environment variables to store sensitive information such as t
 For security reasons, the .env file is not included in the GitHub repository.
 After cloning the repository, you must manually create a .env file in the project root.
 ✅ Steps to Create the .env File
-#### 1️⃣In the project directory, create a new file named:
+#### ➡️In the project directory, create a new file named:
 ```bash
  .env
 ```
-#### 2️⃣IAdd the following environment variable inside the .env file:
+#### ➡️IAdd the following environment variable inside the .env file:
 ```bash
 DATABASE_URL=postgresql://<username>:<password>@localhost:5432/<database_name>
 

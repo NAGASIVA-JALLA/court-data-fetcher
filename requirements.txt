@@ -7,4 +7,5 @@ python-dotenv
 playwright
 psycopg2-binary
 python-multipart
-httpx pytest
+httpx 
+pytest
